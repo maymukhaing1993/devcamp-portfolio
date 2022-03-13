@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+
 	def index
 		@portfolio_items = Portfolio.all
 	end
@@ -7,6 +8,10 @@ class PortfoliosController < ApplicationController
 		@portfolio_item = Portfolio.new
 	end
 	 # POST /blogs or /blogs.json
+
+	# GET /blogs/1 or /blogs/1.json
+	def show
+	end
     
     def create
     @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
@@ -20,5 +25,26 @@ class PortfoliosController < ApplicationController
         format.json { render json: @portfolio_item.errors, status: :unprocessable_entity }
       end
     end
+
+     # GET /blogs/1/edit
+	  def edit
+	  	@portfolio_item = Portfolio.find(params[:id])
+	  end
+
+     # PATCH/PUT /blogs/1 or /blogs/1.json
+	  def update
+	    @blog = Blog.find(params[:id])
+	    respond_to do |format|
+	      if @blog.update(blog_params)
+	        format.html { redirect_to blog_url(@blog), notice: "Blog was successfully updated." }
+	        format.json { render :show, status: :ok, location: @blog }
+	      else
+	        format.html { render :edit, status: :unprocessable_entity }
+	        format.json { render json: @blog.errors, status: :unprocessable_entity }
+	      end
+	    end
+
+	
+  end
   end
 end
