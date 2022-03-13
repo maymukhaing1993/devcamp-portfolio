@@ -11,7 +11,13 @@ class PortfoliosController < ApplicationController
 
 	# GET /blogs/1 or /blogs/1.json
 	def show
+		@portfolio_item = Portfolio.find(params[:id])
 	end
+
+	   # GET /blogs/1/edit
+	  def edit
+	  	@portfolio_item = Portfolio.find(params[:id])
+	  end
     
     def create
     @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
@@ -26,10 +32,7 @@ class PortfoliosController < ApplicationController
       end
     end
 
-     # GET /blogs/1/edit
-	  def edit
-	  	@portfolio_item = Portfolio.find(params[:id])
-	  end
+  
 
      # PATCH/PUT /blogs/1 or /blogs/1.json
 	  def update

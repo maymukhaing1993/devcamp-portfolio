@@ -16,11 +16,11 @@
     <tbody>
   <% @portfolio_items.each do |portfolio| %>
     <tr>
-          <td><%= portfolio.title %></td>
+          <td><%= link_to portfolio.title, portfolio_show_path(portfolio) %></td>
           <td><%= portfolio.subtitle %></td>
           <td><%= portfolio.body %></td>
-        <!--  <%= image_tag portfolio.main_image unless portfolio.main_image.nil? %>
-          <%= image_tag portfolio.thumb_image unless portfolio.thumb_image.nil? %> -->
+          <%= image_tag portfolio.main_image unless portfolio.main_image.nil? %>
+          <%= image_tag portfolio.thumb_image unless portfolio.thumb_image.nil? %>
       <td><%= link_to "Edit", edit_portfolio_path(portfolio) %></td>
     </tr>
   <% end %>
