@@ -5,20 +5,12 @@
 <%= link_to "Create New Item",new_portfolio_url, subdomain: 'my_subdomain' %>
 
 <div id="portfolios">
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Subtitle</th>
-        <th>Body</th>
-      </tr>
-    </thead>
-    <tbody>
+
   <% @portfolio_items.each do |portfolio| %>
     <tr>
-          <td><%= link_to portfolio.title, portfolio_show_path(portfolio) %></td>
-          <td><%= portfolio.subtitle %></td>
-          <td><%= portfolio.body %></td>
+          <p><%= link_to portfolio.title, portfolio_show_path(portfolio) %></p>
+          <p><%= portfolio.subtitle %></p>
+          <p><%= portfolio.body %></p>
           <%= image_tag portfolio.main_image unless portfolio.main_image.nil? %>
           <%= image_tag portfolio.thumb_image unless portfolio.thumb_image.nil? %>
       <td><%= link_to "Edit", edit_portfolio_path(portfolio) %></td>

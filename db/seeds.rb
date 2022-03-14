@@ -1,5 +1,5 @@
 10.times do |blog|
-  Blog.creat!(
+  Blog.create!(
   	 title: "My Blog Post #{blog}",
   	 body: "dbfbeifbeifbeisbvjsdvbjjvbsdbvdjvbjd
   	 vbjsdbvjsdbvjdbvdjvbjdvdvvdvdvdvdvfdvdfvdfvd"
@@ -9,7 +9,7 @@ end
 puts "10 blog posts created"
 
 5.times do |skill|
-  Skill.creat!(
+  Skill.create!(
   	 title: "Rails #{skill}",
   	 percent_utilized: 15
   	)
@@ -23,8 +23,8 @@ puts "5 skills created"
 		subtitle: "My great service",
 		body: "jfsdfbsfbdsjfbsjfbsdjbsdbjsbbjb
 		  fkfnskfnskdnfsnfsfnslfnsdnf",
-		main_image: "http://placehold.it/350*200",
-		thumb_image: "http://placehold.it/350*200"
+		main_image: "https://via.placeholder.com/150",
+		thumb_image: "https://via.placeholder.com/150"
 		)
 end
 
