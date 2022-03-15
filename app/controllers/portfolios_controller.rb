@@ -36,14 +36,13 @@ class PortfoliosController < ApplicationController
 
      # PATCH/PUT /blogs/1 or /blogs/1.json
 	  def update
-	    @blog = Blog.find(params[:id])
+	    @portfolio_item = Portfolio.find(params[:id])
 	    respond_to do |format|
-	      if @blog.update(blog_params)
-	        format.html { redirect_to blog_url(@blog), notice: "Blog was successfully updated." }
+	      if @portfolio_item.update(params.require(:portfolio).permit(:title, :subtitle, :body))
+	        format.html { redirect_to portfolios_path, notice: "The record successfully updated." }
 	        format.json { render :show, status: :ok, location: @blog }
 	      else
 	        format.html { render :edit, status: :unprocessable_entity }
-	        format.json { render json: @blog.errors, status: :unprocessable_entity }
 	      end
 	    end
 

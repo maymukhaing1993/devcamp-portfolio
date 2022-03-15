@@ -6,8 +6,9 @@
   <table>
     <thead>
       <tr>
-        <th>Title</th>
+        <th>Blog Title</th>
         <th>Body</th>
+        <th colspan="4"></th>
       </tr>
     </thead>
     <tbody>
@@ -15,9 +16,10 @@
     <tr>
           <td><%= blog.title %></td>
           <td><%= blog.body %></td>
+          <td><%= link_to blog.status, toggle_status_blog_path(blog) %></td>
       <td><%= link_to "Show", blog %></td>
       <td><%= link_to "Edit", edit_blog_path(blog) %></td>
-      <td><%= link_to "Destory", blog,method: :delete %></td>
+      <td><%= button_to "Destory", blog,method: :delete %></td>
     </tr>
   <% end %>
   </tbody>
