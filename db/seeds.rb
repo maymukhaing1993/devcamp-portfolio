@@ -1,8 +1,15 @@
+3.times do |topic|
+	Topic.create!(
+		 title: "Topic #{topic}"
+		)
+end
+
 10.times do |blog|
   Blog.create!(
   	 title: "My Blog Post #{blog}",
   	 body: "dbfbeifbeifbeisbvjsdvbjjvbsdbvdjvbjd
-  	 vbjsdbvjsdbvjdbvdjvbjdvdvvdvdvdvdvfdvdfvdfvd"
+  	 vbjsdbvjsdbvjdbvdjvbjdvdvvdvdvdvdvfdvdfvdfvd",
+  	 topic_id: Topic.last.id 
   	)
 end
 
@@ -17,10 +24,21 @@ end
 
 puts "5 skills created"
 
-9.times do |portfolio_item|
+8.times do |portfolio_item|
 	Portfolio.create!(
 		title: "Portfolio title: #{portfolio_item}",
-		subtitle: "My great service",
+		subtitle: "Ruby on Rails",
+		body: "jfsdfbsfbdsjfbsjfbsdjbsdbjsbbjb
+		  fkfnskfnskdnfsnfsfnslfnsdnf",
+		main_image: "https://via.placeholder.com/150",
+		thumb_image: "https://via.placeholder.com/150"
+		)
+end
+
+1.times do |portfolio_item|
+	Portfolio.create!(
+		title: "Portfolio title: #{portfolio_item}",
+		subtitle: "Angular",
 		body: "jfsdfbsfbdsjfbsjfbsdjbsdbjsbbjb
 		  fkfnskfnskdnfsnfsfnslfnsdnf",
 		main_image: "https://via.placeholder.com/150",
